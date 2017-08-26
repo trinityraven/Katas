@@ -56,64 +56,59 @@ public class Assert {
 public class RomanNumerals {
     private static bool debug = false;
     
-    private static int ONE = 1;
-    private static int FIVE = 5;
-    private static int TEN = 10;
-    private static int FIFTY = 50;
-    //private static int HUNDRED = 100;
-    //private static int FIVE_HUNDRED = 500;
-    //private static int THOUSAND = 1000;
+    private static int POSITIONAL_ONE = 1;
+    private static int POSITIONAL_FIVE = 5;
+    private static int POSITIONAL_TEN = 10;
+    private static int POSITIONAL_FIFTY = 50;
+    private static int POSITIONAL_HUNDRED = 100;
+    private static int POSITIONAL_FIVE_HUNDRED = 500;
+    private static int POSITIONAL_THOUSAND = 1000;
+    
+    private static string ROMAN_ONE = "I";
+    private static string ROMAN_FIVE = "V";
     
     public static string convertFromPositionalValue(int positionalValue) {
         int workingValue = positionalValue;
         string result = "";
         
-        if (workingValue >= FIFTY) {
+        while (workingValue >= POSITIONAL_THOUSAND) {
+            result += "M";
+            workingValue -= POSITIONAL_THOUSAND;    
+        }
+        
+        if (workingValue >= POSITIONAL_FIVE_HUNDRED) {
+            result += "D";
+            workingValue -= POSITIONAL_FIVE_HUNDRED;
+        }
+        
+        while (workingValue >= POSITIONAL_HUNDRED) {
+            result += "C";
+            workingValue -= POSITIONAL_HUNDRED;
+        }
+
+        if (workingValue >= POSITIONAL_FIFTY) {
             result += "L";
-            workingValue -= FIFTY;
+            workingValue -= POSITIONAL_FIFTY;
         } 
-        while (workingValue >= TEN)
+
+        while (workingValue >= POSITIONAL_TEN)
         {
             result += "X";
-            workingValue -= TEN;
-            printProgress(workingValue, result);
-            if (result.EndsWith("XXXX"))
-            {
-                string prefix = "";
-                if (result.Length>4)
-                    prefix = result.Substring(0, result.LastIndexOf("XXXX"));
-                    
-                string addin = "";
-                if (result.Contains("L"))
-                    addin = "C";
-                else
-                    addin = "L";
-                result = prefix + "X" + addin;
-            }
-        }
-        if (workingValue >= FIVE) {
-            result += "V";
-            workingValue -= FIVE;
+            workingValue -= POSITIONAL_TEN;
             printProgress(workingValue, result);
         }
-        while (workingValue >= ONE) 
+
+        if (workingValue >= POSITIONAL_FIVE) {
+            result += ROMAN_FIVE;
+            workingValue -= POSITIONAL_FIVE;
+            printProgress(workingValue, result);
+        }
+
+        while (workingValue >= POSITIONAL_ONE) 
         {
-            result += "I";
-            workingValue -= ONE;
+            result += ROMAN_ONE;
+            workingValue -= POSITIONAL_ONE;
             printProgress(workingValue, result);
-            if (result.EndsWith("IIII"))
-            {
-                string prefix = "";
-                if (result.Length>4)
-                    prefix = result.Substring(0, result.LastIndexOf("IIII"));
-                
-                string addin = "";
-                if (result.Contains("V"))
-                    addin = "X";
-                else
-                    addin = "V";
-                result = prefix + "I" + addin;
-            }
         }
         
         return result;    
@@ -127,7 +122,7 @@ public class RomanNumerals {
 
 void executeTest(int positional, string roman) {
     string actual = RomanNumerals.convertFromPositionalValue(positional);
-    Console.WriteLine($"Test {positional} is '{actual}' | {(Assert.AreEqual(roman, actual) ? "PASS" : "FAIL")}");
+    Console.WriteLine($"{positional} is '{actual}' | {(Assert.AreEqual(roman, actual) ? "PASS" : "FAIL")}");
 }
 
 void main() {
@@ -142,6 +137,7 @@ void main() {
     executeTest(8, "VIII");
     executeTest(9, "IX");
     executeTest(10, "X");
+    executeTest(20, "XX");
     executeTest(38, "XXXVIII");
     executeTest(39, "XXXIX");
     executeTest(40, "XL");
@@ -149,6 +145,18 @@ void main() {
     executeTest(44, "XLIV");
     executeTest(49, "XLIX");
     executeTest(50, "L");
+    executeTest(90, "XC");
+    executeTest(100, "C");
+    executeTest(200, "CC");
+    executeTest(400, "XD");
+    executeTest(500, "D");
+    executeTest(900, "CM");
+    executeTest(1000, "M");
+    executeTest(1978, "MCMLXXVIII");
+    executeTest(1988, "MCMLXXXVIII");
+    executeTest(2000, "MM");
+    executeTest(2010, "MMX");
+    executeTest(3999, "MMMXMXCIX");
 }
 
 main();
