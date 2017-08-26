@@ -23,6 +23,7 @@ M = 1000
 39 = XXXIX
 40 = XL
 41 = XLI
+44 = XLIV
 49 = IL or XLIX
 50 = L
 90 = XC
@@ -58,7 +59,7 @@ public class RomanNumerals {
     private static int ONE = 1;
     private static int FIVE = 5;
     private static int TEN = 10;
-    //private static int FIFTY = 50;
+    private static int FIFTY = 50;
     //private static int HUNDRED = 100;
     //private static int FIVE_HUNDRED = 500;
     //private static int THOUSAND = 1000;
@@ -67,6 +68,10 @@ public class RomanNumerals {
         int workingValue = positionalValue;
         string result = "";
         
+        if (workingValue >= FIFTY) {
+            result += "L";
+            workingValue -= FIFTY;
+        } 
         while (workingValue >= TEN)
         {
             result += "X";
@@ -76,7 +81,7 @@ public class RomanNumerals {
             {
                 string prefix = "";
                 if (result.Length>4)
-                    prefix = result.Substring(0, result.LastIndexOf("XXXX")-1);
+                    prefix = result.Substring(0, result.LastIndexOf("XXXX"));
                     
                 string addin = "";
                 if (result.Contains("L"))
@@ -100,7 +105,7 @@ public class RomanNumerals {
             {
                 string prefix = "";
                 if (result.Length>4)
-                    prefix = result.Substring(0, result.LastIndexOf("IIII")-1);
+                    prefix = result.Substring(0, result.LastIndexOf("IIII"));
                 
                 string addin = "";
                 if (result.Contains("V"))
@@ -141,7 +146,9 @@ void main() {
     executeTest(39, "XXXIX");
     executeTest(40, "XL");
     executeTest(41, "XLI");
+    executeTest(44, "XLIV");
     executeTest(49, "XLIX");
+    executeTest(50, "L");
 }
 
 main();
