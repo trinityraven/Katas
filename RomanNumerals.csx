@@ -9,26 +9,6 @@ C = 100
 D = 500
 M = 1000
 
-1 = I
-2 = II
-3 = III
-4 = IV
-5 = V
-6 = VI
-7 = VII
-8 = VIII
-9 = IX
-10 = X
-38 = XXXVIII
-39 = XXXIX
-40 = XL
-41 = XLI
-44 = XLIV
-49 = IL or XLIX
-50 = L
-90 = XC
-1978 = MCMLXXVIII
-
 */
 
 using System;
@@ -194,7 +174,9 @@ void main() {
     executeTest(200, "CC");
     executeTest(300, "CCC");
     executeTest(400, "CD");
+    executeTest(450, "CDL");
     executeTest(500, "D");
+    executeTest(555, "DLV");
     executeTest(600, "DC");
     executeTest(700, "DCC");
     executeTest(800, "DCCC");
