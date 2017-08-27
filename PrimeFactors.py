@@ -2,11 +2,11 @@ import unittest
 
 class TestFactoring(unittest.TestCase):
     def test_suite(self):
-        self.assertSetEqual(PrimeFactors.Factor(1), set())
+        self.assertListEqual(PrimeFactors.Factor(1), [])
 
 class PrimeFactors:
     def Factor(number):
-        factors = set()
+        factors = []
         return factors
         
 if __name__ == '__main__':
