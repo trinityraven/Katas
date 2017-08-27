@@ -14,6 +14,12 @@ class LearningTests(unittest.TestCase):
     @unittest.expectedFailure    
     def test_fail(self):
         self.assertTrue('FOO'.islower())
+        
+    def test_lists(self):
+        self.assertListEqual([1, 2, 3], [1, 2, 3])
+        
+    def test_sets(self):
+        self.assertSetEqual(set([1, 2, 3]), frozenset([3, 2, 1]))
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
