@@ -60,6 +60,20 @@ class TestFizzBuzzPop(unittest.TestCase):
         self.assertEqual('buzzpop', FizzBuzzPop.getValue(FizzBuzzPop, 35))
     def test_value_105(self):
         self.assertEqual('fizzbuzzpop', FizzBuzzPop.getValue(FizzBuzzPop, 105))
+        
+class TestFizzBuzzPopBinn(unittest.TestCase):
+    def test_value_0011(self):
+        self.assertEqual('binn', FizzBuzzPopBinn.getValue(FizzBuzzPopBinn, 11))
+    def test_value_0033(self):
+        self.assertEqual('fizzbinn', FizzBuzzPopBinn.getValue(FizzBuzzPopBinn, 33))
+    def test_value_0055(self):
+        self.assertEqual('buzzbinn', FizzBuzzPopBinn.getValue(FizzBuzzPopBinn, 55))
+    def test_value_0077(self):
+        self.assertEqual('popbinn', FizzBuzzPopBinn.getValue(FizzBuzzPopBinn, 77))
+    def test_value_0165(self):
+        self.assertEqual('fizzbuzzbinn', FizzBuzzPopBinn.getValue(FizzBuzzPopBinn, 165))
+    def test_value_1155(self):
+        self.assertEqual('fizzbuzzpopbinn', FizzBuzzPopBinn.getValue(FizzBuzzPopBinn, 1155))
 
 class Fizz:
     def getValue(self, value):
@@ -91,10 +105,15 @@ class FizzBuzzPop(FizzBuzz):
     def modifyValue(self, value):
         result = FizzBuzz.getValue(FizzBuzz, value)
         return self.substituteWordForFactorInResultForValue(self, 'pop', 7, result, value)
+        
+class FizzBuzzPopBinn(FizzBuzzPop):
+    def modifyValue(self, value):
+        result = FizzBuzzPop.getValue(FizzBuzzPop, value)
+        return self.substituteWordForFactorInResultForValue(self, 'binn', 11, result, value)
 
-unittest.main(verbosity=2)
+#unittest.main(verbosity=2)
 
 i = 1
-while i <= 105:
-    print(FizzBuzzPop.getValue(FizzBuzzPop, i))
+while i <= 1155:
+    print(FizzBuzzPopBinn.getValue(FizzBuzzPopBinn, i))
     i += 1
