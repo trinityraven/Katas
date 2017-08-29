@@ -13,10 +13,10 @@ class TestFizz(unittest.TestCase):
         self.assertEqual('fizz', Fizz.getValue(6))
     def test_value_05(self):
         self.assertNotEqual('buzz', Fizz.getValue(5))
-        self.assertEqual(5, Fizz.getValue(5))        
+        self.assertEqual(5, Fizz.getValue(5))
     def test_value_10(self):
         self.assertNotEqual('buzz', Fizz.getValue(10))
-        self.assertEqual(10, Fizz.getValue(10))            
+        self.assertEqual(10, Fizz.getValue(10))
     def test_value_15(self):
         self.assertNotEqual('fizzbuzz', Fizz.getValue(15))
         self.assertEqual('fizz', Fizz.getValue(15))
@@ -45,7 +45,7 @@ class TestFizzBuzz(unittest.TestCase):
     def test_value_35(self):
         self.assertNotEqual('buzzpop', FizzBuzz.getValue(35))
         self.assertEqual('buzz', FizzBuzz.getValue(35))
-        
+
 class TestFizzBuzzPop(unittest.TestCase):
     def test_value_07(self):
         self.assertEqual('pop', FizzBuzzPop.getValue(7))
@@ -63,7 +63,7 @@ class Fizz:
         if (value % 3 == 0):
             return 'fizz'
         return value
-        
+
 class FizzBuzz(Fizz):
     def getValue(value):
         result = Fizz.getValue(value)
@@ -72,7 +72,7 @@ class FizzBuzz(Fizz):
         elif value % 5 == 0:
             result = 'buzz'
         return result
-        
+
 class FizzBuzzPop(FizzBuzz):
     def getValue(value):
         result = FizzBuzz.getValue(value)
@@ -82,7 +82,7 @@ class FizzBuzzPop(FizzBuzz):
             result = 'pop'
         return result
 
-#unittest.main(verbosity=2)
+unittest.main(verbosity=2)
 
 i = 1
 while i <= 105:
