@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>8d535288-100c-4d1c-a61b-92df990b2613</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Katas.py</StartupFile>
+    <StartupFile>fizzbuzzpop_refactor.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Katas.py" />
+    <Compile Include="fizzbuzz.py" />
+    <Compile Include="fizzbuzzpop_refactor.py" />
+    <Compile Include="LearnTests.py" />
+    <Compile Include="PrimeFactors.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

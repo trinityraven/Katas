@@ -19,21 +19,21 @@ class TestFactoring(unittest.TestCase):
         self.assertListEqual(PrimeFactors.Factor(8), [2, 2, 2])
     def test_169(self):
         self.assertListEqual(PrimeFactors.Factor(169), [13, 13])
-        
+
 class PrimeFactors:
     def Factor(number):
         remainder = number
         factor = 2
         factors = []
-        
+
         while remainder > 1:
             while (remainder % factor) == 0:
                 remainder = remainder // factor
                 factors.append(factor)
             factor += 1
-        
+
         return factors
-        
+
 if __name__ == '__main__':
-    unittest.main(verbosity=1)
+    unittest.main(verbosity=2)
 

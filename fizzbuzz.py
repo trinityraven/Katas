@@ -12,10 +12,10 @@ class FizzBuzzTests(unittest.TestCase):
 	def test_value10(self):
 		self.assertEqual('buzz', FizzBuzz.getValue(10))
 	def test_value15(self):
-		self.assertEqual('fizzbuzz', FizzBuzz.getValue(15))		
+		self.assertEqual('fizzbuzz', FizzBuzz.getValue(15))
 	def test_value45(self):
-		self.assertEqual('fizzbuzz', FizzBuzz.getValue(45))		
-		
+		self.assertEqual('fizzbuzz', FizzBuzz.getValue(45))
+
 class FizzBuzz:
 	def getValue(i):
 		result = ''
@@ -41,16 +41,16 @@ class FizzBuzzPopTests(unittest.TestCase):
 	def test_value10(self):
 		self.assertEqual('buzz', FizzBuzzPop.getValue(10))
 	def test_value14(self):
-		self.assertEqual('pop', FizzBuzzPop.getValue(14))		
+		self.assertEqual('pop', FizzBuzzPop.getValue(14))
 	def test_value15(self):
-		self.assertEqual('fizzbuzz', FizzBuzzPop.getValue(15))		
+		self.assertEqual('fizzbuzz', FizzBuzzPop.getValue(15))
 	def test_value21(self):
-		self.assertEqual('fizzpop', FizzBuzzPop.getValue(21))		
+		self.assertEqual('fizzpop', FizzBuzzPop.getValue(21))
 	def test_value35(self):
-		self.assertEqual('buzzpop', FizzBuzzPop.getValue(35))		
+		self.assertEqual('buzzpop', FizzBuzzPop.getValue(35))
 	def test_value45(self):
-		self.assertEqual('fizzbuzz', FizzBuzzPop.getValue(45))		
-		
+		self.assertEqual('fizzbuzz', FizzBuzzPop.getValue(45))
+
 class FizzBuzzPop:
 	def getValue(i):
 		result = ''
