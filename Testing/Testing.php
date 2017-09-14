@@ -13,7 +13,8 @@ class Assert {
 	}
 
 	public static function AreNotEqual($expected, $actual) {
-		return ($expected != $actual);
+		return 
+ ($expected != $actual);
 	}
 }
 
